@@ -10,7 +10,7 @@ var quizData = [
         correctAnswer: 3
     },
     {
-        question: "HTML is the main source of webpage styling",
+        question: "HTML is the main source of webpage styling.",
         choices: ["True", "False"],
         correctAnswer: 0
     },
@@ -22,6 +22,7 @@ var quizData = [
     {
         question: "What does var mean in JavaScript?",
         choices: ["Variable", "Various", "Varsity", "Variant"],
+        correctAnswer: 0
     },
 ];
 
@@ -55,7 +56,7 @@ function showQuestion() {
 function checkAnswer() {
     var selectedChoice = document.querySelector('input[name="choice"]:checked');
     if (selectedChoice) {
-        var userAnswer = parseInt(selectedChoices.value);
+        var userAnswer = parseInt(selectedChoice.value);
         var correctAnswer = quizData[currentQuestion].correctAnswer;
         if (userAnswer === correctAnswer) {
             score++;
@@ -76,6 +77,6 @@ function showResult() {
     submitButton.style.display = "none";
 }
 
-submitButton.adddEventListener("click", checkAnswer);
+submitButton.addEventListener("click", checkAnswer);
 
 showQuestion();
