@@ -12,11 +12,11 @@ var quizData = [
     {
         question: "HTML is the main source of webpage styling.",
         choices: ["True", "False"],
-        correctAnswer: 0
+        correctAnswer: 1
     },
     {
         question: "What is the correct symbol for closing out an HTML tag?",
-        choics: ["*", "$", "/", "!",],
+        choices: ["*", "$", "/", "!",],
         correctAnswer: 2
     },
     {
