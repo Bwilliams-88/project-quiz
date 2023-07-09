@@ -33,6 +33,8 @@ var questionElement = document.getElementById("questions");
 var choicesElement = document.getElementById("choices");
 var startButton = document.getElementById("start-btn");
 var submitButton = document.getElementById("submit-btn");
+var initials = document.getElementById("initials");
+var endBtn = document.getElementById("end-btn");
 
 function startQuiz() {
     quizData.style.display = "none";
@@ -81,11 +83,20 @@ function showResult() {
     questionElement.textContent = "Quiz Complete!";
     choicesElement.innerHTML = "You scored " + score + "/" + quizData.length;
     submitButton.style.display = "none";
+    initials.style.display = "block";
 }
 
 startButton.addEventListener("click", () => {
-    questionElement.style.display = "block"
+    // questionElement.style.display = "block"
+    startButton.style.display = "none";
+    submitButton.style.display = "block";
+    showQuestion();
 });
 submitButton.addEventListener("click", checkAnswer);
+endBtn.addEventListener("click", () => {
+    var finalScore = input.value + " " + score;
+    localStorage.setItem("name + score", finalScore);
+})
 
-showQuestion();
+// startQuiz();
+// showQuestion();
