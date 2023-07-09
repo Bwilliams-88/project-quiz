@@ -1,3 +1,17 @@
-#quiz-container {
+#quiz-container
+{
     font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+}
+
+#h1
+{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 35px;
+    text-decoration: underline;
+    margin-bottom: 20px;
 }

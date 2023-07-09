@@ -31,7 +31,13 @@ var score = 0;
 
 var questionElement = document.getElementById("questions");
 var choicesElement = document.getElementById("choices");
+var startButton = document.getElementById("start-btn");
 var submitButton = document.getElementById("submit-btn");
+
+function startQuiz() {
+    quizData.style.display = "none";
+    startButton.style.display = "none";
+}
 
 function showQuestion() {
     var question = quizData[currentQuestion];
@@ -73,10 +79,13 @@ function checkAnswer() {
 
 function showResult() {
     questionElement.textContent = "Quiz Complete!";
-    choicesElement.innerHTML = "Your score is " + score + "/" + quizData.length;
+    choicesElement.innerHTML = "You scored " + score + "/" + quizData.length;
     submitButton.style.display = "none";
 }
 
+startButton.addEventListener("click", () => {
+    questionElement.style.display = "block"
+});
 submitButton.addEventListener("click", checkAnswer);
 
 showQuestion();
