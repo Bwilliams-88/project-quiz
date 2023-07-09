@@ -28,13 +28,18 @@ var quizData = [
 
 var currentQuestion = 0;
 var score = 0;
+var totalTime = 60;
+var timeRemaining = totalTime;
 
 var questionElement = document.getElementById("questions");
 var choicesElement = document.getElementById("choices");
+var timerElement = document.getElementById("timer");
 var startButton = document.getElementById("start-btn");
 var submitButton = document.getElementById("submit-btn");
 var initials = document.getElementById("initials");
 var endBtn = document.getElementById("end-btn");
+
+
 
 function startQuiz() {
     quizData.style.display = "none";
@@ -44,6 +49,17 @@ function startQuiz() {
 function showQuestion() {
     var question = quizData[currentQuestion];
     questionElement.textContent = question.question;
+    var timerInterval = setInterval(function () {
+        totalTime--;
+        timerElement.textContent = totalTime + " seconds remaining.";
+    if (totalTime <= 0) {
+        clearInterval(timerInterval);
+
+         showResult();
+    }
+    }, 1000);
+
+
 
     choicesElement.innerHTML = "";
         for (var i = 0; i < question.choices.length; i++) {
