@@ -49,15 +49,7 @@ function startQuiz() {
 function showQuestion() {
     var question = quizData[currentQuestion];
     questionElement.textContent = question.question;
-    var timerInterval = setInterval(function () {
-        totalTime--;
-        timerElement.textContent = totalTime + " seconds remaining.";
-    if (totalTime <= 0) {
-        clearInterval(timerInterval);
 
-         showResult();
-    }
-    }, 1000);
 
 
 
@@ -106,6 +98,15 @@ startButton.addEventListener("click", () => {
     // questionElement.style.display = "block"
     startButton.style.display = "none";
     submitButton.style.display = "block";
+    var timerInterval = setInterval(function () {
+        totalTime--;
+        timerElement.textContent = totalTime + " seconds remaining.";
+    if (totalTime <= 0) {
+        clearInterval(timerInterval);
+
+         showResult();
+    }
+    }, 1000);
     showQuestion();
 });
 submitButton.addEventListener("click", checkAnswer);
